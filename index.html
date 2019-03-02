@@ -1,0 +1,1109 @@
+<html>
+<head>
+<head><title>my project</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.container {
+  position: relative;
+  display: none;
+}
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+ {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+{box-sizing: border-box;}
+
+.img-comp-container {
+  position: relative;
+  height: 200px; /*should be the same height as the images*/
+}
+
+.img-comp-img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow:hidden;
+}
+
+.img-comp-img img {
+  display:block;
+  vertical-align:middle;
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index:9;
+  cursor: ew-resize;
+  /*set the appearance of the slider:*/
+  width: 40px;
+  height: 40px;
+  background-color: #2196F3;
+  opacity: 0.7;
+  border-radius: 50%;
+}
+{box-sizing: border-box;}
+
+.img-magnifier-container {
+  position:relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+}
+{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}#msg
+{
+width:150px;
+height:80px;
+background-color:#FC6;
+}
+
+</style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+<script type="text/javascript">
+function mover()
+{
+	document.getElementById("msg").innerHTML="Welcome  to Image Effect";
+}
+function mout()
+{
+	document.getElementById("msg").innerHTML="Byy to all";
+}
+</script>
+<script>
+function magnify(imgID, zoom) {
+  var img, glass, w, h, bw;
+  img = document.getElementById(imgID);
+  glass = document.createElement("DIV");
+  glass.setAttribute("class", "img-magnifier-glass");
+ 
+  img.parentElement.insertBefore(glass, img);
+  glass.style.backgroundImage = "url('" + img.src + "')";
+  glass.style.backgroundRepeat = "no-repeat";
+  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+  bw = 3;
+  w = glass.offsetWidth / 2;
+  h = glass.offsetHeight / 2;
+  glass.addEventListener("mousemove", moveMagnifier);
+  img.addEventListener("mousemove", moveMagnifier);
+  /*and also for touch screens:*/
+  glass.addEventListener("touchmove", moveMagnifier);
+  img.addEventListener("touchmove", moveMagnifier);
+  function moveMagnifier(e) {
+    var pos, x, y;
+    e.preventDefault();
+    pos = getCursorPos(e);
+    x = pos.x;
+    y = pos.y;
+    /*prevent the magnifier glass from being positioned outside the image:*/
+    if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+    if (x < w / zoom) {x = w / zoom;}
+    if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+    if (y < h / zoom) {y = h / zoom;}
+    /*set the position of the magnifier glass:*/
+    glass.style.left = (x - w) + "px";
+    glass.style.top = (y - h) + "px";
+    /*display what the magnifier glass "sees":*/
+    glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+</script>
+<script>
+/* Initiate Magnify Function
+with the id of the image, and the strength of the magnifier glass:*/
+magnify("myimage", 3);
+</script>
+<script>
+function initComparisons() {
+  var x, i;
+  /*find all elements with an "overlay" class:*/
+  x = document.getElementsByClassName("img-comp-overlay");
+  for (i = 0; i < x.length; i++) {
+    /*once for each "overlay" element:
+    pass the "overlay" element as a parameter when executing the compareImages function:*/
+    compareImages(x[i]);
+  }
+  function compareImages(img) {
+    var slider, img, clicked = 0, w, h;
+    /*get the width and height of the img element*/
+    w = img.offsetWidth;
+    h = img.offsetHeight;
+    /*set the width of the img element to 50%:*/
+    img.style.width = (w / 2) + "px";
+    /*create slider:*/
+    slider = document.createElement("DIV");
+    slider.setAttribute("class", "img-comp-slider");
+    /*insert slider*/
+    img.parentElement.insertBefore(slider, img);
+    /*position the slider in the middle:*/
+    slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+    slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+    /*execute a function when the mouse button is pressed:*/
+    slider.addEventListener("mousedown", slideReady);
+    /*and another function when the mouse button is released:*/
+    window.addEventListener("mouseup", slideFinish);
+    /*or touched (for touch screens:*/
+    slider.addEventListener("touchstart", slideReady);
+    /*and released (for touch screens:*/
+    window.addEventListener("touchstop", slideFinish);
+    function slideReady(e) {
+      /*prevent any other actions that may occur when moving over the image:*/
+      e.preventDefault();
+      /*the slider is now clicked and ready to move:*/
+      clicked = 1;
+      /*execute a function when the slider is moved:*/
+      window.addEventListener("mousemove", slideMove);
+      window.addEventListener("touchmove", slideMove);
+    }
+    function slideFinish() {
+      /*the slider is no longer clicked:*/
+      clicked = 0;
+    }
+    function slideMove(e) {
+      var pos;
+      /*if the slider is no longer clicked, exit this function:*/
+      if (clicked == 0) return false;
+      /*get the cursor's x position:*/
+      pos = getCursorPos(e)
+      /*prevent the slider from being positioned outside the image:*/
+      if (pos < 0) pos = 0;
+      if (pos > w) pos = w;
+      /*execute a function that will resize the overlay image according to the cursor:*/
+      slide(pos);
+    }
+    function getCursorPos(e) {
+      var a, x = 0;
+      e = e || window.event;
+      /*get the x positions of the image:*/
+      a = img.getBoundingClientRect();
+      /*calculate the cursor's x coordinate, relative to the image:*/
+      x = e.pageX - a.left;
+      /*consider any page scrolling:*/
+      x = x - window.pageXOffset;
+      return x;
+    }
+    function slide(x) {
+      /*resize the image:*/
+      img.style.width = x + "px";
+      /*position the slider:*/
+      slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+    }
+  }
+}
+</script>
+<script>
+function magnify(imgID, zoom) {
+  var img, glass, w, h, bw;
+  img = document.getElementById(imgID);
+  /*create magnifier glass:*/
+  glass = document.createElement("DIV");
+  glass.setAttribute("class", "img-magnifier-glass");
+  /*insert magnifier glass:*/
+  img.parentElement.insertBefore(glass, img);
+  /*set background properties for the magnifier glass:*/
+  glass.style.backgroundImage = "url('" + img.src + "')";
+  glass.style.backgroundRepeat = "no-repeat";
+  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+  bw = 3;
+  w = glass.offsetWidth / 2;
+  h = glass.offsetHeight / 2;
+  /*execute a function when someone moves the magnifier glass over the image:*/
+  glass.addEventListener("mousemove", moveMagnifier);
+  img.addEventListener("mousemove", moveMagnifier);
+  /*and also for touch screens:*/
+  glass.addEventListener("touchmove", moveMagnifier);
+  img.addEventListener("touchmove", moveMagnifier);
+  function moveMagnifier(e) {
+    var pos, x, y;
+    /*prevent any other actions that may occur when moving over the image*/
+    e.preventDefault();
+    /*get the cursor's x and y positions:*/
+    pos = getCursorPos(e);
+    x = pos.x;
+    y = pos.y;
+    /*prevent the magnifier glass from being positioned outside the image:*/
+    if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+    if (x < w / zoom) {x = w / zoom;}
+    if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+    if (y < h / zoom) {y = h / zoom;}
+    /*set the position of the magnifier glass:*/
+    glass.style.left = (x - w) + "px";
+    glass.style.top = (y - h) + "px";
+    /*display what the magnifier glass "sees":*/
+    glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+</script>
+
+</head>
+<body>
+    	<section class="slider">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>
+                    <div class="carousel-inner">
+						<div class="item active">
+							<img src="abc.jpg" alt="Los Angeles">
+						</div>
+						<div class="item">
+							<img src="abc.jpg" alt="Chicago">
+						</div>
+						<div class="item">
+							<img src="abc.jpg" alt="New York">
+						</div>
+                    </div>
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<span class="sr-only">Next</span>
+					</a>
+                </div>
+			</div>
+		</div><br>
+	</section>
+	<section>
+	    <div class="container-fluid">
+            <div class="row text-center">
+                 <img src="ro.jpg" style="height:150px;width:100px:" class="img-circle">
+			</div>
+		</div>
+	</section><br><br>
+	<section>
+	      <div class="container-fluid">
+              <div class="row text-center">
+			     <div class="col-md-3">
+                    <a href="mailto:rahul9536895467@gmail.com"><i class="fa fa-envelope-o" style="font-size:50px;color:black;"></i>
+			     </div>
+				 <div class="col-md-3">
+                    <a href="https://www.facebook.com/rahulfarswan.rahulfarswan.9"><i class="fa fa-facebook-official" style="font-size:50px;color:MidnightBlue;"></i>
+			     </div>
+				 <div class="col-md-3">
+                     <a href="home.html"><i class="fa fa-product-hunt" style="font-size:50px;"></i></a>
+			     </div>
+				  <div class="col-md-3">
+                      <a href="about.html"><i class="fa fa-user-o" style="font-size:50px;color:teal;"></i></a>
+			     </div>
+		        </div>
+		    </div>
+	</section><br><br>
+	
+	<section>
+	        <div class="container-fluid">
+			    <div class="col-md-2">
+					<div class="panel panel-default">
+						<div class="panel-body">
+						    <h4><b>Marquee Effect</b></h4>
+						</div>
+					</div>
+				</div>
+			    <div class="col-md-6">
+					<div class="panel panel-default">
+					    <div class="panel-body">
+					        <marquee> 
+							   <img src="23.jpg" style="height:180px;width:150px;">
+							   <img src="12.jpg" style="height:180px;width:150px;">
+							   <img src="88.jpg" style="height:180px;width:150px;">
+							   <img src="41.jpg" style="height:180px;width:150px;">
+							   <img src="23.jpg" style="height:180px;width:150px;">
+						    </marquee>
+						</div>
+				    </div>
+<div class="panel panel-default">
+<div class="panel-body">				   
+<b>Add html<b><pre>
+&lt;marquee&gt;
+	 &lt;img src="default.jpg" style="height:180px;width:150px;"&gt;
+	 &lt;img src="default.jpg" style="height:180px;width:150px;"&gt;
+	 &lt;img src="default.jpg" style="height:180px;width:150px;"&gt;
+	 &lt;img src="default.jpg" style="height:180px;width:150px;"&gt;
+	 &lt;img src="default.jpg" style="height:180px;width:150px;"&gt;
+&lt;/marquee&gt;
+</pre>
+</div>
+</div>  
+				</div>  
+		    </div>
+	</section>
+	 <section>
+							  <div class="container-fluid">
+							   <div class="col-md-7 col-md-offset-2">
+							     <div class="panel panel-default">
+								 <div class="panel-body">
+								 <h2><b>mouseover & out</b></h2>
+								 </div>
+								 </div>
+								 
+							 <img src="forest.jpg" style="height:300px;width:570px;" onmouseover="mover()" onmouseout="mout()">
+<div id="msg">
+</div>
+ <div class="col-md-12">
+							 <div class="panel panel-default"> 
+							 <div class="panel-body">
+	<b>Add Script<pre>
+	function mover()
+{
+	document.getElementById("msg").innerHTML="Welcome  to Image Effect";
+}
+function mout()
+{
+	document.getElementById("msg").innerHTML="Byy to all";
+}
+
+	 </pre>
+							 </div>
+							 </div>
+							 </div>
+							 </div>
+							 </div>
+<					 </section>
+	  <section>
+							 <div class="container-fluid">
+							   <div class="col-md-6 col-md-offset-2">
+							     <div class="panel panel-default">
+								 <div class="panel-body">
+								 <h4><b>Goggle page</b></h4>
+								</div>
+							</div>
+							 <img src="21.jpg" style="height:300px;width:570px;"><br><br>
+							 <div class="col-md-12">
+							 <div class="panel panel-default">
+							 <div class="panel-body">
+							 
+<b>step-1)Add-html</b><pre>
+	    &lt;form method="POST"&gt;
+         &lt;h2 ALIGN="center"&gt;
+             &lt;font size="5"&gt;
+            &lt;/font&gt;&lt;h2&gt;
+         &lt;h4 ALIGN="center"&gt;
+       &lt;font color="white" size="15"&gt;G&lt;/font>
+       &lt;font color="red" size="15"&gt;O&lt;/font&gt;
+     &lt;font color="yellow" size="15"&gt;o&lt;/font>
+     &lt;font color="blue" size="15"&gt;G&lt;/font&gt;
+     &lt;font color="green" size="15"&gt;l&lt;/font&gt;
+   &lt;font color="white" size="15"&gt;e&lt;/font&gt;
+   &lt;/br>
+   &lt;input type="text" name="first" size="50"&gt;&lt;p&gt;
+    &lt;input type="submit" value="google search" name="c"&gt;
+  &lt;input type="submit" value="search" name="o"&gt;
+  </pre>
+    </div>
+   </div>
+     </div>
+	 </div>
+	 </section>
+	 <section>
+		<div class="container-fluid">
+							   <div class="col-md-6 col-md-offset-2">
+							     <div class="panel panel-default">
+								 <div class="panel-body">
+
+<p><b>Image comparison two images:</b></p>							 
+</div>
+</div>
+
+<div class="img-comp-container">
+  <div class="img-comp-img">
+    <img src="88.jpg" style="height:180px;width:420px;">
+  </div>
+  <div class="img-comp-img img-comp-overlay">
+    <img src="23.jpg" style="height:180px;width:420px;">
+  </div>
+</div>
+
+<script>
+/*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
+initComparisons();
+</script>
+<div class="col-md-12">
+							 <div class="panel panel-default" style="overflow:auto;height:600px;display:block;">
+							 <div class="panel-body">
+<b>Step-1)Add html</b><pre>
+&lt;p&gt;Click and slide the blue slider to compare two images:&lt;/p&gt;
+&lt;div class="img-comp-container"&gt;
+  &lt;div class="img-comp-img"&gt;
+    &lt;img src="88.jpg" style="height:300px;width:400px;"&gt;
+  &lt;/div&gt;
+  &lt;div class="img-comp-img img-comp-overlay"&gt;
+    &lt;img src="ro.jpg" style="height:300px;width:400px;"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<b>Step-2)Add css</b><pre>
+{box-sizing: border-box;}
+
+.img-comp-container {
+  position: relative;
+  height: 200px; /*should be the same height as the images*/
+}
+
+.img-comp-img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow:hidden;
+}
+
+.img-comp-img img {
+  display:block;
+  vertical-align:middle;
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index:9;
+  cursor: ew-resize;
+  /*set the appearance of the slider:*/
+  width: 40px;
+  height: 40px;
+  background-color: #2196F3;
+  opacity: 0.7;
+  border-radius: 50%;
+}</pre>
+<b>Step-3)Add Script</b><pre>
+
+function initComparisons() {
+  var x, i;
+  /*find all elements with an "overlay" class:*/
+  x = document.getElementsByClassName("img-comp-overlay");
+  for (i = 0; i < x.length; i++) {
+    /*once for each "overlay" element:
+    pass the "overlay" element as a parameter when executing the compareImages function:*/
+    compareImages(x[i]);
+  }
+  function compareImages(img) {
+    var slider, img, clicked = 0, w, h;
+    /*get the width and height of the img element*/
+    w = img.offsetWidth;
+    h = img.offsetHeight;
+    /*set the width of the img element to 50%:*/
+    img.style.width = (w / 2) + "px";
+    /*create slider:*/
+    slider = document.createElement("DIV");
+    slider.setAttribute("class", "img-comp-slider");
+    /*insert slider*/
+    img.parentElement.insertBefore(slider, img);
+    /*position the slider in the middle:*/
+    slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+    slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+    /*execute a function when the mouse button is pressed:*/
+    slider.addEventListener("mousedown", slideReady);
+    /*and another function when the mouse button is released:*/
+    window.addEventListener("mouseup", slideFinish);
+    /*or touched (for touch screens:*/
+    slider.addEventListener("touchstart", slideReady);
+    /*and released (for touch screens:*/
+    window.addEventListener("touchstop", slideFinish);
+    function slideReady(e) {
+      /*prevent any other actions that may occur when moving over the image:*/
+      e.preventDefault();
+      /*the slider is now clicked and ready to move:*/
+      clicked = 1;
+      /*execute a function when the slider is moved:*/
+      window.addEventListener("mousemove", slideMove);
+      window.addEventListener("touchmove", slideMove);
+    }
+    function slideFinish() {
+      /*the slider is no longer clicked:*/
+      clicked = 0;
+    }
+    function slideMove(e) {
+      var pos;
+      /*if the slider is no longer clicked, exit this function:*/
+      if (clicked == 0) return false;
+      /*get the cursor's x position:*/
+      pos = getCursorPos(e)
+      /*prevent the slider from being positioned outside the image:*/
+      if (pos < 0) pos = 0;
+      if (pos > w) pos = w;
+      /*execute a function that will resize the overlay image according to the cursor:*/
+      slide(pos);
+    }
+    function getCursorPos(e) {
+      var a, x = 0;
+      e = e || window.event;
+      /*get the x positions of the image:*/
+      a = img.getBoundingClientRect();
+      /*calculate the cursor's x coordinate, relative to the image:*/
+      x = e.pageX - a.left;
+      /*consider any page scrolling:*/
+      x = x - window.pageXOffset;
+      return x;
+    }
+    function slide(x) {
+      /*resize the image:*/
+      img.style.width = x + "px";
+      /*position the slider:*/
+      slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+    }
+  }
+}</pre>
+<b>Execute Script</b><pre>
+&lt;script&gt;
+initComparisons();
+&lt;/script&gt;&lt;/pre&gt;
+</div>
+</div>
+</div>
+</div>
+</div>
+
+		</section>
+<section>
+<div class="container-fluid">
+							   <div class="col-md-6 col-md-offset-2">
+							     <div class="panel panel-default">
+								 <div class="panel-body">
+   <h1>Image Magnifier Glass</h1>
+     <p>Mouse over the image:</p>
+	 						 </div>
+							 </div>
+    <div class="img-magnifier-container">
+  <img id="myimage" src="zoom1.jpg" style="height:300px;width:570px;"">
+</div>
+<p>Feel free to change the strength of the magnifier glass when initiating the magnify function.</p>
+<script>
+magnify("myimage", 3);
+</script>
+<div class="col-md-12">
+							 <div class="panel panel-default" style="overflow:auto;height:600px;display:block;>
+							 <div class="panel-body">
+	
+<b>Step-1)Add html<b>
+<pre>
+&lt;div class="img-magnifier-container"&gt;
+  &lt;img id="myimage" src="zoom.jpg" style="height:300px;width:570px;"&gt;
+&lt;/div&gt;
+</pre>
+<b>Step-2)Add css<b>
+<pre>
+{box-sizing: border-box;}
+
+.img-magnifier-container {
+  position:relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+}
+</pre>
+<b>Step-3)Ass Script</b>
+<pre>
+function magnify(imgID, zoom) {
+  var img, glass, w, h, bw;
+  img = document.getElementById(imgID);
+  /*create magnifier glass:*/
+  glass = document.createElement("DIV");
+  glass.setAttribute("class", "img-magnifier-glass");
+  /*insert magnifier glass:*/
+  img.parentElement.insertBefore(glass, img);
+  /*set background properties for the magnifier glass:*/
+  glass.style.backgroundImage = "url('" + img.src + "')";
+  glass.style.backgroundRepeat = "no-repeat";
+  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+  bw = 3;
+  w = glass.offsetWidth / 2;
+  h = glass.offsetHeight / 2;
+  /*execute a function when someone moves the magnifier glass over the image:*/
+  glass.addEventListener("mousemove", moveMagnifier);
+  img.addEventListener("mousemove", moveMagnifier);
+  /*and also for touch screens:*/
+  glass.addEventListener("touchmove", moveMagnifier);
+  img.addEventListener("touchmove", moveMagnifier);
+  function moveMagnifier(e) {
+    var pos, x, y;
+    /*prevent any other actions that may occur when moving over the image*/
+    e.preventDefault();
+    /*get the cursor's x and y positions:*/
+    pos = getCursorPos(e);
+    x = pos.x;
+    y = pos.y;
+    /*prevent the magnifier glass from being positioned outside the image:*/
+    if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+    if (x < w / zoom) {x = w / zoom;}
+    if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+    if (y < h / zoom) {y = h / zoom;}
+    /*set the position of the magnifier glass:*/
+    glass.style.left = (x - w) + "px";
+    glass.style.top = (y - h) + "px";
+    /*display what the magnifier glass "sees":*/
+    glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+
+</pre>
+<b>Step 4) Initiate the Magnify Function</b>
+<pre>
+&lt;script&gt;
+/* Initiate Magnify Function
+with the id of the image, and the strength of the magnifier glass:*/
+magnify("myimage", 3);
+&lt;/script&gt;
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+		<section>
+	        <div class="container-fluid">
+			    <div class="col-md-2">
+					<div class="panel panel-default">
+						<div class="panel-body">
+						    <h4><b>Heading's</b></h4>
+						</div>
+					</div>
+				</div>
+			    <div class="col-md-6">
+					<div class="panel panel-default">
+					   <div class="panel-body">
+                           <h1>Heading 1</h1>
+                           <h2>Heading 2</h2>
+                           <h3>Heading 3</h3>
+                           <h4>Heading 4</h4>
+                           <h5>Heading 5</h5>
+                           <h6>Heading 6</h6><br>
+						   
+<pre>
+&lt;h1&gt; Heading 1&lt;/h1&gt;
+&lt;h2&gt; Heading 2&lt;/h2&gt;
+&lt;h3&gt; Heading 3&lt;/h3&gt;
+&lt;h4&gt; Heading 4&lt;/h4&gt;
+&lt;h5&gt; Heading 5&lt;/h5&gt;
+&lt;h6&gt; Heading 6&lt;/h6&gt;
+</pre>
+					   </div>
+					</div>  
+				</div>  
+		    </div>
+	</section>
+	<section>
+	<div class="container-fluid">
+							   <div class="col-md-6 col-md-offset-2">
+							     <div class="panel panel-default">
+								 <div class="panel-body">
+								 <h3><b>calculator</b></h3>
+<form method="POST">
+<input type="text" name="first"><br>
+<input type="text" name="second"><br>
+<input type="checkbox" name="chk[]" value="1">sum
+<input type="checkbox" name="chk[]" value="2" >multiply
+<input type="checkbox" name="chk[]" value="3" >subtract
+<input type="checkbox" name="chk[]" value="4">div<br>
+<input type="submit" value="result" name="k">
+</div>
+</div>
+<?php
+
+  if(isset($_POST['k']))
+{
+	$f=$_POST['first'];
+	 $g=$_POST['second'];
+	$ch=$_POST['chk'];
+	foreach ($ch as $c)
+	{
+		if($c==1)
+		{
+			echo $s=$f+$g;
+		}
+		if($c==2)
+		{
+			echo $m=$f*$g;
+	}
+	     if($c==3)
+			 echo $b=$f-$g;
+	}
+	     if($c==4)
+		 {
+			 echo $d=$f/$g;
+		 }
+}    
+
+	
+?>
+            <div class="col-md-12">
+			 <div class="panel panel-default" style="overflow:auto;height:400px;display:block;>
+					<div class="panel-body">
+step-1)<b>Add html<b><pre>
+	&lt;input type="text" name="first"><br>
+&lt;input type="text" name="second"><br>
+&lt;input type="checkbox" name="chk[]" value="1"&gt;sum
+&lt;input type="checkbox" name="chk[]" value="2"&gt;multiply
+&lt;input type="checkbox" name="chk[]" value="3"&gt;subtract
+&lt;input type="checkbox" name="chk[]" value="4"&gt;div<br>
+&lt;input type="submit" value="result" name="k"&gt;
+					</pre>
+step-2)<b>Add php<b><pre>
+&lt;?php
+	if(isset($_POST['k']))
+{
+	$f=$_POST['first'];
+	 $g=$_POST['second'];
+	$ch=$_POST['chk'];
+	foreach ($ch as $c)
+	{
+		if($c==1)
+		{
+			echo $s=$f+$g;
+		}
+		if($c==2)
+		{
+			echo $m=$f*$g;
+	}
+	     if($c==3)
+			 echo $b=$f-$g;
+	}
+	     if($c==4)
+		 {
+			 echo $d=$f/$g;
+		 }
+}
+			?&gt;		</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+	</section>
+	<section>
+	<div class="container-fluid">
+							   <div class="col-md-6 col-md-offset-2">
+							     <div class="panel panel-default">
+	<div class="panel-body">
+	<h3><b>onfocuse</b></h3>
+	<script type="text/javascript">
+function fun1()
+{
+	document.getElementById("name").style.backgroundColor="red"
+}
+function fun2()
+{ 
+document.getElementById("name").style.backgroundColor="yellow"
+}
+function fun3()
+{
+	document.getElementById("a1").style.backgroundColor="red"
+}
+function fun4()
+{ 
+document.getElementById("a1").style.backgroundColor="yellow"
+}
+</script>
+<input type="text" id="name" onfocus="fun1()" onchange="fun2()"><br>
+<input type="text" id="a1" onfocus="fun3()" onchange="fun4()"><br>
+<input type="submit"value="hello">
+</div>
+</div>
+<div class="col-md-12">
+			 <div class="panel panel-default">
+					<div class="panel-body">
+<b>Add Script</b><pre>
+function fun1()
+{
+	document.getElementById("name").style.backgroundColor="red"
+}
+function fun2()
+{ 
+document.getElementById("name").style.backgroundColor="yellow"
+}
+function fun3()
+{
+	document.getElementById("a1").style.backgroundColor="red"
+}
+function fun4()
+{ 
+document.getElementById("a1").style.backgroundColor="yellow"
+}
+
+					</pre>
+					</div>
+					</div>
+					</div>
+	</section>
+</body>
+</html>
