@@ -34,7 +34,7 @@ body {
 <body>
 
 <div class="topnav">
-  <a class="active" href="index.php">Home</a>
+  <a class="active" href="index.html">Home</a>
   <a href="https://www.google.com/search?q=news&rlz=1C1CHBD_enIN837IN837&oq=news&aqs=chrome..69i57j69i60j0j5l2j0.5403j1j7&sourceid=chrome&ie=UTF-8">News</a>
   <a href="#contact">Contact</a>
   <div class="topnav-right">
@@ -1168,8 +1168,8 @@ body {
     </div>
     <div>
       <button class="btn btn-block btn-info ripple-effect" type="submit" name="login" alt="sign in">Login in</button>  <br>
-     <center> <a href="index.php">Forget Password?</a>	</center> 
-      <a href="index.php"><h3>Back</h3></a>	 
+     <center> <a href="home.html">Forget Password?</a>	</center> 
+      <a href="home.html"><h3>Back</h3></a>	 
 	 </div>
 
     </div>
@@ -1189,7 +1189,7 @@ if(isset($_POST['login'])){
 		//$_SESSION['name']=$name;
 		$_SESSION['email']=$email;
 		echo '<script type="text/javascript">
-           window.location = "profile.php"
+           window.location = "profile.html"
       </script>';
 	}
 	else{
